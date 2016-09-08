@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+    <data>
+
+        <variable
+            name="detail"
+            type="com.thoughworks.retail.viewmodel.ProductDetailViewModel"/>
+    </data>
+    <LinearLayout xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:orientation="vertical" android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <android.support.v7.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:gravity="center_vertical"
+            android:background="@color/colorPrimary"
+            android:minHeight="?attr/actionBarSize"
+            app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
+            >
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:textSize="14sp"
+                android:gravity="center"
+                android:layout_gravity="right"
+                android:text="Cart"
+                android:paddingRight="16dp"
+
+                android:onClick="@{() -> detail.showCart()}"
+                android:textColor="@android:color/white"
+                />
+        </android.support.v7.widget.Toolbar>
+
+      <ImageView
+          android:layout_width="match_parent"
+          android:layout_height="0dp"
+          android:layout_weight="0.8"
+          app:image="@{detail.product.imageUrl}"/>
+
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@android:color/white"
+            android:paddingLeft="16dp"
+            android:gravity="center_vertical">
+
+            <TextView
+                android:id="@+id/product_name"
+                android:layout_alignParentLeft="true"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@{detail.product.name}"
+                android:singleLine="true"
+                android:layout_alignParentTop="true"
+                android:layout_marginRight="10dp"
+                android:layout_marginTop="14dp"
+                android:textColor="@color/grey_4d"
+                android:textSize="16sp"/>
+
+            <TextView
+                android:layout_below="@id/product_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@{detail.price}"
+                android:textColor="@color/grey_4d"
+                android:textSize="12sp"/>
+
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="bottom|right"
+                android:layout_margin="16dp"
+                android:text="Add"
+                android:onClick="@{() -> detail.addToCart(detail.product.id)}"
+                android:textColor="@android:color/white"
+                android:layout_alignParentRight="true"
+               />
+
+        </RelativeLayout>
+
+
+    </LinearLayout>
+</layout>

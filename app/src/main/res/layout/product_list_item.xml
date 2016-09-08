@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+    <data>
+
+        <variable
+            name="item"
+            type="com.thoughworks.retail.viewmodel.ProductItemViewModel"/>
+    </data>
+
+    <android.support.v7.widget.CardView
+        android:orientation="vertical" android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="@{() -> item.showProductDetail(item.product)}"
+
+        >
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:layout_width="0dp"
+                android:layout_weight="0.3"
+                android:layout_height="wrap_content"
+                app:image="@{item.product.imageUrl}"/>
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_weight="0.7"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="10dp">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/grey_4d"
+                    android:textSize="14sp"
+                    android:layout_marginBottom="4dp"
+                    android:text="@{item.product.name}"/>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/grey_4d"
+                    android:textSize="12sp"
+                    android:text="@{item.price}"/>
+            </LinearLayout>
+        </LinearLayout>
+
+</android.support.v7.widget.CardView>
+</layout>
